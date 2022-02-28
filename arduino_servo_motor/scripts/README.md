@@ -1,4 +1,4 @@
-#Some Resources 
+# Some Resources 
 
 * https://docs.arduino.cc/learn/electronics/servo-motors
 * https://www.youtube.com/watch?v=kUHmYKWwuWs

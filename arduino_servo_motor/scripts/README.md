@@ -6,3 +6,5 @@
 * http://wiki.ros.org/rosserial_arduino/Tutorials
 
 * https://maker.pro/arduino/tutorial/how-to-use-visual-studio-code-for-arduino
+
+* https://www.youtube.com/watch?v=kUHmYKWwuWs

@@ -8,3 +8,5 @@
 * https://maker.pro/arduino/tutorial/how-to-use-visual-studio-code-for-arduino
 
 * https://www.youtube.com/watch?v=kUHmYKWwuWs
+* https://www.youtube.com/watch?v=88VbbSiAZCk
+* 

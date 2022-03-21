@@ -1,6 +1,6 @@
-  <!-- Example launch file -->
+  <!-- Example launch file for the hello_world_example.py -->
 <launch>
-<node pkg="motor_p" type="hello_world_example.py" name="printer_node"
+<node pkg="ros_example_p" type="hello_world_example.py" name="printer_node"
 output="screen">
 </node>
 </launch>

@@ -22,3 +22,6 @@ rospy.spin()                                            # Create a loop that wil
 # sometimes a python file is created without execution permisions, so use the following command 
 # to add execution permissions: chmod +x name_of_python_file.py
 
+# HOW to run this file 
+
+

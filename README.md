@@ -22,8 +22,8 @@
 
 ## INSTALLING A ROS PACKAGE Example form source code
 
-- Whenever you see <mark>"Could not find a configuration file for package <package_name>"</mark> it means this package is missing and is needed for compiling your code.
-- Possible solution: Use <mark>rosdep</mark> command, which will automatically try to find all the dependencies of your package and install them.
+- Whenever you see **"Could not find a configuration file for package <package_name>"** it means this package is missing and is needed for compiling your code.
+- Possible solution: Use **rosdep** command, which will automatically try to find all the dependencies of your package and install them.
 
 
 

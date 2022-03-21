@@ -1,0 +1,6 @@
+  <!-- Example launch file for topic_subscriber_example.py -->
+<launch>
+<node pkg="ros_example_p" type="topic_subscriber_example.py"
+name="topic_subscriber" output="screen">
+</node>
+</launch>

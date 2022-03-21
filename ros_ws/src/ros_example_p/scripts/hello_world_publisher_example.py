@@ -3,6 +3,8 @@
 # The above line will ensure the interpreter used is the first one on your environments path
 # Every python file needs to start with this
 
+# The publisher node publishes topics that other nodes can subscribe to
+
 import queue
 import rospy                                                # import the rospy, which is a python library for ROS.
 from std_msgs.msg import String                             # import the String message from the std_msgs package 

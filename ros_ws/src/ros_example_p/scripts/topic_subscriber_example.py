@@ -23,5 +23,8 @@ rospy.spin()                                            # Create a loop that wil
 # to add execution permissions: chmod +x name_of_python_file.py
 
 # HOW to run this file 
+# rosrun ros_example_p topic_subscriber_example.py
+# OR using the roslaunch 
+# roslaunch ros_example_p topic_subscriber_example_launcher.launch
 
 

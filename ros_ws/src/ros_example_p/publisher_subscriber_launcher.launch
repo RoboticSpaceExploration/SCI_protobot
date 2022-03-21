@@ -1,0 +1,11 @@
+  <!-- You can also launch more than one package at the same time from the same
+launch file. -->
+
+<launch>
+<node pkg="ros_example_p" type="hello_world_publisher.py" name="topic_publisher"
+output="screen">
+</node>
+<node pkg="ros_example_p" type="topic_subscriber_example.py"
+name="topic_subscriber" output="screen">
+</node>
+</launch>

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 
 #Modified code from turtlebot3_teleop_key 
 
@@ -13,7 +13,7 @@ else:
 MAX_LIN_VEL = 0.75
 MAX_ANG_VEL = 2.0
 
-LIN_VEL_STEP_SIZE = 0.01
+LIN_VEL_STEP_SIZE = 0.1
 ANG_VEL_STEP_SIZE = 0.1
 
 msg = """

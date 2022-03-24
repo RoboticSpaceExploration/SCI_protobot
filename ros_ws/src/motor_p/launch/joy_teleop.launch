@@ -8,5 +8,5 @@
   </node>
 
  <!-- Start teleop node -->
-    <node pkg="diff_drive_bot" type="joy_teleop.py" name="joy_teleop" output="screen"/>
+    <node pkg="motor_p" type="joy_teleop.py" name="joy_teleop" output="screen"/>
 </launch>

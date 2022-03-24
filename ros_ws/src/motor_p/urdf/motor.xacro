@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<robot name="motor_urdf" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <legacyMode>false</legacyMode>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>10</updateRate>
+      <leftJoint>base_link_to_shaft</leftJoint>
+      <rightJoint>base_link_to_shaft</rightJoint>
+      <wheelSeparation>0</wheelSeparation>
+      <wheelDiameter>0.2</wheelDiameter>
+      <torque>10</torque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>base_link</robotBaseFrame>
+    </plugin>
+  </gazebo>
+
+  <link name="world"/>
+
+  <joint name="fixed" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
+
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.6 0" />
+      <geometry>
+        <cylinder length="0.06" radius="0.04" />
+      </geometry>
+    </visual>
+
+    <collision name="collision">
+      <origin xyz="0 0 0" rpy="0 1.6 0" />
+      <geometry>
+        <cylinder radius="0.06" length="0.04" />
+      </geometry>
+    </collision>
+
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 1.6 0" />
+      <mass value="5" />
+      <inertia ixx=".1" ixy="0.0" ixz="0.0" iyy=".1" iyz="0.0" izz=".1" />
+    </inertial>
+  </link>
+
+  <link name="shaft">
+    <visual>
+      <origin xyz="0.05 0 0" rpy="0 1.6 0" />
+      <geometry>
+        <cylinder length="0.06" radius="0.01" />
+      </geometry>
+      <material name="Cyan1">
+        <color rgba="0 0.9 0.9 1.0" />
+      </material>
+    </visual>
+
+    <collision name="collision">
+      <origin xyz="0 0 0" rpy="0 1.6 0" />
+      <geometry>
+        <cylinder radius="0.06" length="0.01" />
+      </geometry>
+    </collision>
+
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 1.6 0" />
+      <mass value="5" />
+      <inertia ixx=".1" ixy="0.0" ixz="0.0" iyy=".1" iyz="0.0" izz=".1" />
+    </inertial>
+  </link>
+
+  <link name="propeller">
+    <visual>
+      <origin xyz="0.08 0 0" rpy="0 1.6 0" />
+      <geometry>
+        <box size="0.05 0.02 0.001" />
+      </geometry>
+      <material name="Yellow1">
+        <color rgba="0.8 0.8 0 1.0" />
+      </material>
+    </visual>
+
+    <collision name="collision">
+      <origin xyz="0 0 0" rpy="0 1.6 0" />
+      <geometry>
+        <box size="0.05 0.02 0.001" />
+      </geometry>
+    </collision>
+
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 1.6 0" />
+      <mass value="5" />
+      <inertia ixx=".1" ixy="0.0" ixz="0.0" iyy=".1" iyz="0.0" izz=".1" />
+    </inertial>
+  </link>
+
+  <joint name="shaft_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.0 0 0.02" />
+    <parent link="shaft" />
+    <child link="propeller" />
+  </joint>
+
+  <joint name="base_link_to_shaft" type="continuous">
+    <axis xyz="1 0 0" />
+    <origin rpy="0 0 0" xyz="0 0 0" />
+    <parent link="base_link" />
+    <child link="shaft" />
+  </joint>
+
+
+</robot>

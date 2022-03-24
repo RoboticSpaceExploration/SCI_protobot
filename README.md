@@ -14,7 +14,7 @@ This ros package implements control for motors. A keyboard is used to teleoperat
 	$ catkin_make
 	```
 
-## Controlling the motors:
+### Controlling the motors:
 
 1. Load the robot in the Gazebo environment.
 

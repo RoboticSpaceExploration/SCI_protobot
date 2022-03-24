@@ -1,6 +1,23 @@
 <?xml version="1.0"?>
 <robot name="motor_urdf" xmlns:xacro="http://ros.org/wiki/xacro">
 
+  <gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <legacyMode>false</legacyMode>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>10</updateRate>
+      <leftJoint>base_link_to_shaft</leftJoint>
+      <rightJoint>base_link_to_shaft</rightJoint>
+      <wheelSeparation>0</wheelSeparation>
+      <wheelDiameter>0.2</wheelDiameter>
+      <torque>10</torque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>base_link</robotBaseFrame>
+    </plugin>
+  </gazebo>
+
 <link name="base_link">
     <visual>
       <origin xyz="0 0 0" rpy="0 1.6 0"/>
@@ -17,9 +34,15 @@
         <cylinder length="0.06" radius="0.01"/>
       </geometry>
       <material name="Cyan1">
-  <color rgba="0 0.9 0.9 1.0"/>
- </material>
+        <color rgba="0 0.9 0.9 1.0"/>
+      </material>
     </visual>
+    <collision name="collision">
+      <origin xyz="0 0 0" rpy="0 1.6 0"/>
+      <geometry>
+        <cylinder radius="0.06" length="0.01"/>
+      </geometry>
+    </collision>
 </link>
 
 <link name="propeller">

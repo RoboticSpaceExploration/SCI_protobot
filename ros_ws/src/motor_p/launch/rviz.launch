@@ -1,0 +1,37 @@
+<launch>
+
+  <gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <legacyMode>false</legacyMode>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>10</updateRate>
+      <leftJoint>left_wheel_hinge</leftJoint>
+      <rightJoint>right_wheel_hinge</rightJoint>
+      <wheelSeparation>0.4</wheelSeparation>
+      <wheelDiameter>0.2</wheelDiameter>
+      <torque>10</torque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>chassis</robotBaseFrame>
+    </plugin>
+  </gazebo>
+  
+  <arg name="scan_topic"  default="/mybot/laser/scan" />
+  <arg name="base_frame"  default="chassis"/>
+  <arg name="odom_frame"  default="odom"/>
+  
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find diff_drive_bot)/urdf/mybot.xacro'"/>
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="False"/>
+  </node>  
+
+  <!--Publish robot state and transforms  <arg name="model" default="$(find motor_p)/urdf/motor.urdf"/>-->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"></node>
+  
+  <!--Launch rviz-->
+  <node pkg="rviz" type="rviz" name="rviz"
+  args="-d $(find diff_drive_bot)/rviz/rviz.rviz"></node>
+
+</launch>

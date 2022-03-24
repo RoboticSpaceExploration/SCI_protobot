@@ -1,93 +1,50 @@
 <?xml version="1.0"?>
 <robot name="motor_urdf" xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:property name="width" value="0.2" />
-  <xacro:property name="leglen" value="0.6" />
-  <xacro:property name="polelen" value="0.2" />
-  <xacro:property name="bodylen" value="0.6" />
-  <xacro:property name="baselen" value="0.4" />
-  <xacro:property name="wheeldiam" value="0.07" />
-  <xacro:property name="pi" value="3.1415" />
-
-  <xacro:macro name="default_inertial" params="mass">
-    <inertial>
-      <mass value="${mass}" />
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
-    </inertial>
-  </xacro:macro>
-
-  <xacro:macro name="motor_control" params="">
-    <gazebo>
-      <plugin name="motor_control" filename="libgazebo_ros_planar_move.so">
-        <commandTopic>cmd_vel</commandTopic>
-        <odometryTopic>odom</odometryTopic>
-        <odometryFrame>odom</odometryFrame>
-        <odometryRate>20.0</odometryRate>
-        <robotBaseFrame>base_footprint</robotBaseFrame>
-      </plugin>
-    </gazebo>
-  </xacro:macro>
-
-  <link name="base_link">
+<link name="base_link">
     <visual>
-    <origin rpy="1.57075 0 0" xyz="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 1.6 0"/>
       <geometry>
-        <cylinder radius="${width}" length="${bodylen}"/>
+        <cylinder length="0.06" radius="0.04"/>
       </geometry>
     </visual>
-    <collision>
-      <geometry>
-        <cylinder radius="${width}" length="${bodylen}"/>
-      </geometry>
-    </collision>
-    <xacro:default_inertial mass="10"/>
   </link>
 
-  <link name="right_leg">
+<link name="shaft">
     <visual>
+      <origin xyz="0.05 0 0" rpy="0 1.6 0"/>
       <geometry>
-        <box size="0.6 0.1 0.2"/>
+        <cylinder length="0.06" radius="0.01"/>
       </geometry>
-      <origin rpy="0 1.57075 0" xyz="0 0 -0.3"/>
+      <material name="Cyan1">
+  <color rgba="0 0.9 0.9 1.0"/>
+ </material>
     </visual>
-    <collision>
+</link>
+
+<link name="propeller">
+    <visual>
+      <origin xyz="0.08 0 0" rpy="0 1.6 0"/>
       <geometry>
-        <box size="0.6 0.1 0.2"/>
+        <box size="0.05 0.02 0.001"/>
       </geometry>
-      <origin rpy="0 1.57075 0" xyz="0 0 -0.3"/>
-    </collision>
-    <inertial>
-      <mass value="10"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
-    </inertial>
-  </link>
+      <material name="Yellow1">
+  <color rgba="0.8 0.8 0 1.0"/>
+ </material>
+    </visual>
+</link>
 
-  <joint name="base_to_right_leg" type="continuous">
-    <axis rpy="0 0 0" xyz="0 1 0"/>
-    <parent link="right_leg"/>
-    <child link="base_link"/>
-    <origin xyz="0 0 0.25"/>
-  </joint>
+<joint name="shaft_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.0 0 0.02"/>
+    <parent link="shaft"/>
+    <child link= "propeller"/>
+</joint>
 
-  <xacro:motor_control/>
-
-
-  <!-- This block connects the wheel joint to an actuator (motor), which informs both
-  simulation and visualization of the robot -->
-  <transmission name="motor_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-    <actuator name="wheel_motor">
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-    <joint name="base_to_right_leg">
-      <hardwareInterface>VelocityJointInterface</hardwareInterface>
-    </joint>
-  </transmission>
-
-  <gazebo>
-    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/</robotNamespace>
-    </plugin>
-  </gazebo>
-
+  <joint name="base_link_to_shaft" type="continuous">
+     <axis xyz="1 0 0"/>
+     <origin rpy="0 0 0" xyz="0 0 0"/>
+     <parent link="base_link"/>
+     <child link="shaft"/>
+   </joint>
+ 
 </robot>

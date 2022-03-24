@@ -5,6 +5,7 @@ This ros package implements control for motors. A keyboard is used to teleoperat
 ## Package Dependencies
 
 - Joint State publisher. http://wiki.ros.org/joint_state_publisher
+- Robot State publisher. http://wiki.ros.org/robot_state_publisher
 
 ## Setup
 1. Build package from source: navigate to the source folder of your catkin workspace and build this package using:

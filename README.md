@@ -10,7 +10,7 @@ This ros package implements control for motors. A keyboard is used to teleoperat
 	$ roslaunch motor_p gazebo.launch
 	```
 
-2. Move the robot around. In another terminal type:
+2. Move the motor around. In another terminal type:
 
 	 ```
 	 $ rosrun motor_p keyboard_teleop.py 

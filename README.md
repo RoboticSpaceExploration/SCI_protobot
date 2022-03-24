@@ -2,7 +2,7 @@
 
 This ros package implements control for motors. A keyboard is used to teleoperate the motor in Gazebo. This directory is currently using ROS 1 (Noetic).
 
-## Package Dependencies
+## Dependencies
 
 - Joint State publisher. http://wiki.ros.org/joint_state_publisher
 - Robot State publisher. http://wiki.ros.org/robot_state_publisher

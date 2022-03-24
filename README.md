@@ -1,6 +1,6 @@
 # SCI_protobot
 
-This ros package implements control for motors. A keyboard is used to teleoperate the motor in Gazebo. This directory is currently using ROS 1 (Noetic) tentatively
+This ros package implements control for motors. A keyboard is used to teleoperate the motor in Gazebo. This directory is currently using ROS 1 (Noetic).
 
 ## Package Dependencies
 

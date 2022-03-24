@@ -3,9 +3,14 @@
 This ros package implements control for motors. A keyboard is used to teleoperate the motor in Gazebo. This directory is currently using ROS 1 (Noetic).
 
 ## Dependencies
-
-- Joint State publisher. http://wiki.ros.org/joint_state_publisher
-- Robot State publisher. http://wiki.ros.org/robot_state_publisher
+- Joint state publisher http://wiki.ros.org/joint_state_publisher
+```
+sudo apt-get install joint-state-publisher
+```
+- Robot state publisher http://wiki.ros.org/robot_state_publisher
+```
+sudo apt-get install robot-state-publisher
+```
 
 ## Setup
 1. Build package from source: navigate to the source folder of your catkin workspace and build this package using:

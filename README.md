@@ -9,7 +9,7 @@ This ros package implements control for motors. A keyboard is used to teleoperat
 ## Setup
 1. Build package from source: navigate to the source folder of your catkin workspace and build this package using:
 	```
-	$ git clone https://github.com/devanshdhrafani/diff_drive_bot.git
+	$ git clone https://github.com/RoboticSpaceExploration/SCI_protobot.git
 	$ cd ..
 	$ catkin_make
 	```

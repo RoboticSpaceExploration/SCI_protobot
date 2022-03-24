@@ -18,6 +18,18 @@
     </plugin>
   </gazebo>
 
+  <gazebo reference="base_link">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="propeller">
+    <material>Gazebo/Turquoise </material>
+  </gazebo>
+
+  <gazebo reference="shaft">
+    <material>Gazebo/Green</material>
+  </gazebo>
+
   <link name="world"/>
 
   <joint name="fixed" type="fixed">

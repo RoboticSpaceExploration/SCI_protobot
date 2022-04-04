@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 
+
 from __future__ import print_function
 
-from .srv import AddTwoInts,AddTwoIntsResponse
+from motor_p.srv import AddTwoInts,AddTwoIntsResponse
 import rospy
 
 def handle_add_two_ints(req):

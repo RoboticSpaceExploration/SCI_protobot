@@ -4,12 +4,12 @@ from __future__ import print_function
 
 import sys
 import rospy
-from motor_p.srv import AddTwoInts
+from motor_p.srv import Motor_toggle
 
 def motor_toggle_client(x):
     rospy.wait_for_service('toggle_motor')
     try:
-        toggle_motor = rospy.ServiceProxy('toggle_motor', AddTwoInts)
+        toggle_motor = rospy.ServiceProxy('toggle_motor', Motor_toggle)
         resp1 = toggle_motor(x)
         return resp1.reply
     except rospy.ServiceException as e:

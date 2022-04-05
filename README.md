@@ -54,4 +54,5 @@ sudo apt-get install robot-state-publisher
 	$ rosrun motor_p motor_toggle_client.py 1
 	```
 	
-![Uploading Screencast-from-04-04-2022-02_05_19-PM.gif…]()
+![Screencast-from-04-04-2022-02_05_19-PM](https://user-images.githubusercontent.com/70739998/161657922-42baa772-f963-4b01-a05e-aedb7f5762e8.gif)
+

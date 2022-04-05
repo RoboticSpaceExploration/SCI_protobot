@@ -20,7 +20,7 @@ sudo apt-get install robot-state-publisher
 	$ catkin_make
 	```
 
-### Controlling the motors:
+### Simulation Controlling the motors:
 
 1. Load the robot in the Gazebo environment.
 
@@ -37,3 +37,19 @@ sudo apt-get install robot-state-publisher
 ## Demo
 
 ![Screencast from 03-24-2022 03_35_56 AM](https://user-images.githubusercontent.com/70739998/159930850-f058981f-73fe-4b8a-8366-e06f385fa847.gif)
+
+### Sevice / Client Controlling the motors:
+
+1. Initialize the ROS master node:
+	```
+	$ roscore 
+	```
+2. Open another terminal and run the following command:
+	```
+	$ rosrun motor_p motor_toggle_server.py 
+	```
+3. Open another terminal and run the following command:
+
+	```
+	$ rosrun motor_p motor_toggle_client.py 1
+	```

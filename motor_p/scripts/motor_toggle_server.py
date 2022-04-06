@@ -5,6 +5,20 @@ from __future__ import print_function
 
 from motor_p.srv import Motor_toggle,Motor_toggleResponse
 import rospy
+import motor_serial
+
+def callback (self, req):
+    """ Request to serial device """
+    print (" Blah " + str(req))
+    data_buffer = io.BytesIO()
+    req.serialize(data_buffer)
+    self.response = None
+    self.parent.send(self.id, data_buffer.getvalue())
+    while self.response is None:
+        pass
+    return self.response
+
+
 
 def handle_motor_toggle(req):
     rospy.loginfo("Received valid command from motor_toggle_client: "

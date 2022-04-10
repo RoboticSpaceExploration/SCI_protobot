@@ -161,6 +161,7 @@ include_directories(
 catkin_install_python(PROGRAMS
    scripts/motor_toggle_server.py
    scripts/motor_toggle_client.py
+   scripts/motor_control.py
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
 

@@ -24,5 +24,6 @@ if __name__ == "__main__":
     else:
         print(usage())
         sys.exit(1)
+
     print("Requesting %s"%(x))
     print("%s Requested" %(motor_toggle_client(x)))

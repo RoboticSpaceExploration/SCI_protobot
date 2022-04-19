@@ -13,13 +13,10 @@ def signal_handler(signum, frame):
     exit(1)
 
 def handle_motor_toggle(req):
-    if(req.motor_toggle == 1):
-        toggle_motors(1)
-    if(req.motor_toggle == 2): # expand as much as needed
-        toggle_motors(2)
-
-    rospy.loginfo("Received valid command from motor_toggle_client: "
-    "Command [%s]"%(req.motor_toggle))
+    if(req.motor_toggle > 0):
+        rospy.loginfo("Received valid command from motor_toggle_client: "
+        "Command [%s]"%(req.motor_toggle))
+        toggle_motors(int(req.motor_toggle))
 
     return Motor_toggleResponse(req.motor_toggle)
 

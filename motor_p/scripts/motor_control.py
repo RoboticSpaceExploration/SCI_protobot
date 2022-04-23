@@ -13,6 +13,8 @@ def motors_quit():
 	arduino.close()
 
 def toggle_motors(cmd):
+        arduino.write(chr(0))
+        time.sleep(0.1)
 	arduino.write(chr(int(cmd)+48))
 	time.sleep(0.1)
 

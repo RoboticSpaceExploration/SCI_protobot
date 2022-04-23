@@ -1,2 +1,3 @@
 motor_Settings:
   serial_port:      "/dev/ttyArduinoMega"
+  baud_rate:        9600

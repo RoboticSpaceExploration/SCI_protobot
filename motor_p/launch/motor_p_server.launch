@@ -1,3 +1,7 @@
 <launch>
-    <node pkg="motor_p" type="motor_toggle_server.py" name="motor_toggle_server" output="screen"/>
+    <!--node pkg="motor_p" type="motor_toggle_server.py" name="motor_toggle_server" output="screen"/-->
+
+  <rosparam command="load" file="$(find motor_p)/config/motor_settings.yaml"/>
+  <node name="motor_p_motor_actuator_server_node" pkg="motor_p" type="motor_p_motor_actuator_server_node" output="screen"/>
+
 </launch>

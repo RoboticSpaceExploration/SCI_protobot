@@ -9,6 +9,7 @@ project(motor_p)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   rospy
+  roscpp
   std_msgs
   message_generation
 )
@@ -56,7 +57,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate services in the 'srv' folder
 add_service_files(
    FILES
-   Motor_toggle.srv
+   motor_toggle.srv
 )
 
 ## Generate actions in the 'action' folder
@@ -102,7 +103,7 @@ generate_messages(
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
+  INCLUDE_DIRS include
 #  LIBRARIES motor_p
 #  CATKIN_DEPENDS rospy
 #  DEPENDS system_lib
@@ -118,6 +119,20 @@ include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
 )
+
+# server node
+
+add_executable(${PROJECT_NAME}_motor_actuator_server_node src/MotorActuator.cpp src/MotorActuatorServer.cpp)
+add_dependencies(${PROJECT_NAME}_motor_actuator_server_node ${PROJECT_NAME}_generate_messages_cpp)
+target_link_libraries(${PROJECT_NAME}_motor_actuator_server_node ${catkin_LIBRARIES})
+link_directories(${catkin_LIBRARY_DIRS})
+
+# client node (dummy client for now)
+
+add_executable(${PROJECT_NAME}_motor_actuator_client_node src/MotorActuatorDummyClient.cpp)
+add_dependencies(${PROJECT_NAME}_motor_actuator_client_node ${PROJECT_NAME}_generate_messages_cpp)
+target_link_libraries(${PROJECT_NAME}_motor_actuator_client_node ${catkin_LIBRARIES})
+link_directories(${catkin_LIBRARY_DIRS})
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}

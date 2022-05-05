@@ -94,6 +94,7 @@ void MotorActuatorServer::AdvertiseServerCheckCallback(
 
 void MotorActuatorServer::GetYamlParams(MotorActuatorSettings* mas_ptr) {
   nh.getParam("/motor_settings/serial_port", mas_ptr->serialPortAddr);
+  std::cout << mas_ptr->serialPortAddr << std::endl;
   nh.getParam("/motor_settings/baud_rate", mas_ptr->baudRate);
 }
 

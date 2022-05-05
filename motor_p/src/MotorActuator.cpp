@@ -75,7 +75,7 @@ void MotorActuator::MotorActuatorInit(MotorActuatorSettings* mas_ptr) {
 
   if (serialPort < 0) {
     errorBufPtr = strerror_r(errno, errorBuf, sizeof(errorBuf));
-    ROS_ERROR("LED Array: Could not open %s: Error %i from open: %s",
+    ROS_ERROR("SCI_protobot: Could not open %s: Error %i from open: %s",
               mas->serialPortAddr.c_str(), errno, errorBufPtr);
     exit(EXIT_FAILURE);
   }
@@ -84,7 +84,7 @@ void MotorActuator::MotorActuatorInit(MotorActuatorSettings* mas_ptr) {
 
   if (tcgetattr(serialPort, &tty) != 0) {
     errorBufPtr = strerror_r(errno, errorBuf, sizeof(errorBuf));
-    ROS_ERROR("LED Array: Error %i from tcgetattr: %s", errno, errorBufPtr);
+    ROS_ERROR("SCI_protobot: Error %i from tcgetattr: %s", errno, errorBufPtr);
     exit(EXIT_FAILURE);
   }
 
@@ -121,7 +121,7 @@ void MotorActuator::MotorActuatorInit(MotorActuatorSettings* mas_ptr) {
 
   if (tcsetattr(serialPort, TCSANOW, &tty) != 0) {
     strerror_r(errno, errorBuf, sizeof(errorBuf));
-    ROS_ERROR("Motor Actuator: Error %i from tcsetattr: %s", errno, errorBuf);
+    ROS_ERROR("SCI_protobot: Error %i from tcsetattr: %s", errno, errorBuf);
   }
 
   ClearIOBuffers();
